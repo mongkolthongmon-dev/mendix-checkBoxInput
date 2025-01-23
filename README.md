@@ -1,17 +1,20 @@
 ## CheckBoxInput
-[My widget description]
+Change Enum to CheckBox
 
 ## Features
-[feature highlights]
+Change Enum to CheckBox 
+    - can select only one like radio
 
 ## Usage
-[step by step instructions]
+    1. Build project
+    2. copy file com.makro.widget.CheckBoxInput.mpk in dir dist to widget dir mendix project
+    3. Use in UI
 
-## Demo project
-[link to sandbox]
+<!-- ## Demo project
+[link to sandbox] -->
 
-## Issues, suggestions and feature requests
-[link to GitHub issues]
+<!-- ## Issues, suggestions and feature requests
+[link to GitHub issues] -->
 
 ## Development and contribution
 
