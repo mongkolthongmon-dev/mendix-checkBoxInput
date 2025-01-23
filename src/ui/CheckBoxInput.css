@@ -1,0 +1,27 @@
+/*
+Place your custom CSS here
+*/
+.checkbox-container {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.checkbox-item {
+    justify-items: legacy;
+    margin-right: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.checkbox-item-lable {
+    margin-bottom: 0px;
+    margin-left: 6px;
+}
