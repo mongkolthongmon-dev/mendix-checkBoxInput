@@ -1,6 +1,5 @@
 import { Component, Fragment, ReactNode, createElement } from "react";
 
-
 import { CheckBoxInputContainerProps } from "../typings/CheckBoxInputProps";
 
 import "./ui/CheckBoxInput.css";
@@ -15,9 +14,6 @@ export default class CheckBoxInput extends Component<CheckBoxInputContainerProps
         // this.props.enumAttribute.setValidator(this.validator.bind(this));
     }
 
-
-
-
     private onLeave(value: string, isChanged: boolean): void {
         if (!isChanged) {
             return;
@@ -27,22 +23,22 @@ export default class CheckBoxInput extends Component<CheckBoxInputContainerProps
     }
 
     private onUpdate(value: string): void {
-        // console.log('onUpdate',value,);
-        this.props.enumAttribute.setValue(value === '' ? undefined : value);
+        console.log('onUpdate',value,);
+        this.props.enumAttribute.setValue(value === "" ? undefined : value);
     }
 
-    
-
     render(): ReactNode {
-        // console.log("test", this.props.enumAttribute )
+        console.log("test", this.props);
         const value = this.props.enumAttribute.value || "";
         const validationFeedback = this.props.enumAttribute.validation;
-      
-        return  <Fragment>
-                    <CheckBox
+
+        console.log("enumAttribute", this.props.enumAttribute);
+
+        return (
+            <Fragment>
+                <CheckBox
                     id={this.props.id}
                     value={value}
-                    enumValues={this.props.enumAttribute.formatter}
                     style={this.props.style}
                     className={this.props.class}
                     tabIndex={this.props.tabIndex}
@@ -51,10 +47,11 @@ export default class CheckBoxInput extends Component<CheckBoxInputContainerProps
                     required={false}
                     hasError={!!validationFeedback}
                     onUpdate={this.onUpdateHandle}
+                    formorientation={this.props.formorientation}
+                    enumAttribute={this.props.enumAttribute}
                 />
-                 <Alert>{validationFeedback}</Alert>
-            </Fragment>;
+                <Alert>{validationFeedback}</Alert>
+            </Fragment>
+        );
     }
-
-    
 }

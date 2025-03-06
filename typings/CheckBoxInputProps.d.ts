@@ -6,6 +6,8 @@
 import { CSSProperties } from "react";
 import { ActionValue, EditableValue } from "mendix";
 
+export type FormorientationEnum = "horizontal" | "vertical";
+
 export interface CheckBoxInputContainerProps {
     name: string;
     class: string;
@@ -13,6 +15,7 @@ export interface CheckBoxInputContainerProps {
     tabIndex?: number;
     id: string;
     enumAttribute: EditableValue<string>;
+    formorientation: FormorientationEnum;
     onChangeAction?: ActionValue;
 }
 
@@ -20,5 +23,6 @@ export interface CheckBoxInputPreviewProps {
     class: string;
     style: string;
     enumAttribute: string;
+    formorientation: FormorientationEnum;
     onChangeAction: {} | null;
 }

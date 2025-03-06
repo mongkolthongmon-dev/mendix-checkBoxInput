@@ -25,3 +25,25 @@ Place your custom CSS here
     margin-bottom: 0px;
     margin-left: 6px;
 }
+
+.checkbox-container-vertical{
+    flex-direction: column;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.checkbox-item-vertical {
+    justify-items: legacy;
+    margin-right: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: flex-start;
+}
+
+.checkbox-item-vertical-lable {
+    margin-left: 1rem
+}
