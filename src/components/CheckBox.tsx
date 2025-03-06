@@ -53,19 +53,19 @@ export class CheckBox extends Component<InputProps, InputState> {
 
     private onChange(event: ChangeEvent<HTMLInputElement>): void {
 
+        const newValue = event.target.value;
 
-        if (event.target.value === this.getCurrentValue()) {
+        if (newValue === this.getCurrentValue()) {
             // Update the state with the selected checkbox value
             this.setState({ editedValue: undefined });
         } else {
             // Update the state with the selected checkbox value
-            this.setState({ editedValue: event.target.value });
+            this.setState({ editedValue: newValue });
         }
 
         // If an onUpdate prop is passed, propagate the selected value to the parent component
         if (this.props.onUpdate) {
-
-            this.props.onUpdate(event.target.value === this.getCurrentValue() ? "" : event.target.value);
+            this.props.onUpdate(newValue === this.getCurrentValue() ? "" : newValue);
         }
     }
 
@@ -86,10 +86,14 @@ export class CheckBox extends Component<InputProps, InputState> {
     }
 
     render(): ReactNode {
-        const enumlist: enumValue[] = this.props.enumAttribute.universe?.map((caption, key) => ({
-            key: caption,
-            caption: caption
+        const enumlist: enumValue[] = this.props.enumAttribute.universe?.map((value) => ({
+            key: value,
+            caption: this.props.enumAttribute.formatter.format(value)
         })) || [];
+        
+        let formatter = this.props.enumAttribute.formatter.format(this.props.enumAttribute.value);
+        console.log("formatter", formatter);
+        
         
         const labelledby = `${this.props.id}-label` + (this.props.hasError ? ` ${this.props.id}-error` : "");
 
@@ -97,8 +101,8 @@ export class CheckBox extends Component<InputProps, InputState> {
             return (
                 
                 <div className="checkbox-container">
-                    {enumlist.map((enumItem,key) => (
-                        <div key={key.toFixed()} className="col-lg col-md col checkbox-item">
+                    {enumlist.map((enumItem) => (
+                        <div key={enumItem.key} className="col-lg col-md col checkbox-item">
                             <input
                                 type="checkbox"
                                 className={classNames(this.props.className)}
@@ -122,8 +126,8 @@ export class CheckBox extends Component<InputProps, InputState> {
         } else {
             return (
                 <div className="checkbox-container-vertical">
-                {enumlist.map((enumItem,key) => (
-                    <div key={key.toFixed()} className="checkbox-item-vertical">
+                {enumlist.map((enumItem) => (
+                    <div key={enumItem.key} className="checkbox-item-vertical">
                         <input
                             type="checkbox"
                             className={classNames(this.props.className)}
