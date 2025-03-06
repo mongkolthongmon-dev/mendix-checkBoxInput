@@ -97,8 +97,8 @@ export class CheckBox extends Component<InputProps, InputState> {
             return (
                 
                 <div className="checkbox-container">
-                    {enumlist.map((enumItem) => (
-                        <div key={enumItem.key} className="col-lg col-md col checkbox-item">
+                    {enumlist.map((enumItem,key) => (
+                        <div key={key.toFixed()} className="col-lg col-md col checkbox-item">
                             <input
                                 type="checkbox"
                                 className={classNames(this.props.className)}
@@ -122,8 +122,8 @@ export class CheckBox extends Component<InputProps, InputState> {
         } else {
             return (
                 <div className="checkbox-container-vertical">
-                {enumlist.map((enumItem) => (
-                    <div key={enumItem.key} className="checkbox-item-vertical">
+                {enumlist.map((enumItem,key) => (
+                    <div key={key.toFixed()} className="checkbox-item-vertical">
                         <input
                             type="checkbox"
                             className={classNames(this.props.className)}
